@@ -1,6 +1,5 @@
-package symbolCount.dto;
+package symbolсount.dto;
 
-import com.sun.source.tree.Tree;
 import lombok.Data;
 
 import java.util.TreeMap;
