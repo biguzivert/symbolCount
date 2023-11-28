@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 import symbolсount.dto.CountResponce;
 import symbolсount.service.SymbolСountService;
 
-import java.util.TreeMap;
+import java.util.*;
+import java.util.stream.Stream;
 
 @Service
 public class SymbolСountImpl implements SymbolСountService {
@@ -25,8 +26,12 @@ public class SymbolСountImpl implements SymbolСountService {
                 countData.put(c, 1);
             }
         }
+        Map<Character, Integer> sortedData = new LinkedHashMap<>();
+        Stream<Map.Entry<Character, Integer>> countDataStream = countData.entrySet().stream();
+        countDataStream.sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
+                .forEach(d -> sortedData.put(d.getKey(), d.getValue()));
         countResponce.setResult(true);
-        countResponce.setCountData(countData);
+        countResponce.setCountData(sortedData);
         return countResponce;
     }
 
