@@ -8,24 +8,18 @@ import symbolсount.dto.CountResponce;
 import symbolсount.service.SymbolСountService;
 
 @RestController
-public class ApiController {
+public class TextController {
 
     @Autowired
     SymbolСountService symbolCountService;
 
-    @GetMapping(value = "/text/", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/text", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CountResponce> countSymbols(){
         return ResponseEntity.ok(symbolCountService.countSymbols());
     }
 
-    @PostMapping("/text/")
+    @PostMapping("/text")
     public String add(String text){
         return symbolCountService.saveTextInStorage(text);
     }
-
-    @GetMapping("/")
-    public ResponseEntity test(){
-        return ResponseEntity.ok("hello this is testing request");
-    }
-
 }

@@ -32,7 +32,7 @@ public class SymbolСountImpl implements SymbolСountService {
 
     @Override
     public String saveTextInStorage(String text) {
-        textStorage.setText(text);
+        textStorage.addText(text);
         return text;
     }
 }
