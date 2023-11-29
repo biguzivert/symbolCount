@@ -1,6 +1,5 @@
 package symbolсount.utils;
 
-import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -13,9 +12,10 @@ public class TextStorage {
         this.textStorage = textStorage;
     }
 
-    public void addText(String text){
+    public String addText(String text){
         textStorage.clear();
         textStorage.add(text);
+        return text;
     }
 
     public String getText(){

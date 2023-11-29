@@ -2,7 +2,6 @@ package symbolсount.utils;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import symbolсount.dto.CountResponce;
 import symbolсount.service.SymbolСountService;
 
 import java.util.*;
@@ -15,8 +14,7 @@ public class SymbolСountImpl implements SymbolСountService {
     TextStorage textStorage;
 
     @Override
-    public CountResponce countSymbols() {
-        CountResponce countResponce = new CountResponce();
+    public Map<Character, Integer> countSymbols() {
         TreeMap<Character, Integer> countData = new TreeMap<>();
         char[] textCharArray = textStorage.getText().toCharArray();
         for(char c : textCharArray){
@@ -30,14 +28,12 @@ public class SymbolСountImpl implements SymbolСountService {
         Stream<Map.Entry<Character, Integer>> countDataStream = countData.entrySet().stream();
         countDataStream.sorted(Map.Entry.<Character, Integer>comparingByValue().reversed())
                 .forEach(d -> sortedData.put(d.getKey(), d.getValue()));
-        countResponce.setResult(true);
-        countResponce.setCountData(sortedData);
-        return countResponce;
+        return sortedData;
     }
 
-    @Override
+/*    @Override
     public String saveTextInStorage(String text) {
         textStorage.addText(text);
         return text;
-    }
+    }*/
 }

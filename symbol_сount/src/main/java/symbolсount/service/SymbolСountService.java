@@ -1,11 +1,10 @@
 package symbolсount.service;
 
-import org.springframework.stereotype.Service;
-import symbolсount.dto.CountResponce;
+import java.util.Map;
 
 public interface SymbolСountService {
 
-    CountResponce countSymbols();
+    Map<Character, Integer> countSymbols();
 
-    String saveTextInStorage(String text);
+    //String saveTextInStorage(String text);
 }
