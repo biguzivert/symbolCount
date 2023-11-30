@@ -18,13 +18,18 @@ public class TextController {
     @Autowired
     TextStorage textStorage;
 
+/*    @Autowired
+    public TextController(SymbolСountService symbolСountService, TextStorage textStorage){
+        this.symbolCountService = symbolСountService;
+        this.textStorage = textStorage;
+    }*/
     @GetMapping(value = "/text", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<Character, Integer>> countSymbols(){
         return ResponseEntity.ok(symbolCountService.countSymbols());
     }
 
     @PostMapping("/text")
-    public String add(String text){
-        return textStorage.addText(text);
+    public ResponseEntity<String> add(String text){
+        return ResponseEntity.ok(symbolCountService.saveTextInStorage(text));
     }
 }

@@ -31,9 +31,9 @@ public class SymbolСountImpl implements SymbolСountService {
         return sortedData;
     }
 
-/*    @Override
+    @Override
     public String saveTextInStorage(String text) {
         textStorage.addText(text);
         return text;
-    }*/
+    }
 }
