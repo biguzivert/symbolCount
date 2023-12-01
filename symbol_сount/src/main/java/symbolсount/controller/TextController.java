@@ -18,18 +18,19 @@ public class TextController {
     @Autowired
     TextStorage textStorage;
 
-/*    @Autowired
-    public TextController(SymbolСountService symbolСountService, TextStorage textStorage){
-        this.symbolCountService = symbolСountService;
-        this.textStorage = textStorage;
-    }*/
     @GetMapping(value = "/text", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<Character, Integer>> countSymbols(){
+        if(symbolCountService.getTextFromStorage().isEmpty()){
+            return ResponseEntity.status(400).body(null);
+        }
         return ResponseEntity.ok(symbolCountService.countSymbols());
     }
 
     @PostMapping("/text")
     public ResponseEntity<String> add(String text){
+        if(text.isEmpty()){
+            return ResponseEntity.status(400).body("Input is empty");
+        }
         return ResponseEntity.ok(symbolCountService.saveTextInStorage(text));
     }
 }

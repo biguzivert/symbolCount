@@ -16,7 +16,11 @@ public class SymbolСountImpl implements SymbolСountService {
     @Override
     public Map<Character, Integer> countSymbols() {
         TreeMap<Character, Integer> countData = new TreeMap<>();
-        char[] textCharArray = textStorage.getText().toCharArray();
+        String textFromStorage = textStorage.getText();
+        if(textFromStorage == null){
+            return countData;
+        }
+        char[] textCharArray = textFromStorage.toCharArray();
         for(char c : textCharArray){
             if(countData.containsKey(c)){
                 countData.put(c, countData.get(c) + 1);
@@ -35,5 +39,10 @@ public class SymbolСountImpl implements SymbolСountService {
     public String saveTextInStorage(String text) {
         textStorage.addText(text);
         return text;
+    }
+
+    @Override
+    public String getTextFromStorage() {
+        return textStorage.getText();
     }
 }
