@@ -53,12 +53,6 @@ class SymbolCountImplTest{
 
         scenario4 = " fdf fd    dssscca";
         expectedResult4 = new LinkedHashMap<>();
-/*        expectedResult4.put(' ', 6);
-        expectedResult4.put('d', 3);
-        expectedResult4.put('f', 3);
-        expectedResult4.put('s', 3);
-        expectedResult4.put('c', 2);
-        expectedResult4.put('a', 1);*/
 
         scenario5 = "933,/!";
         expectedResult5 = new LinkedHashMap<>();
