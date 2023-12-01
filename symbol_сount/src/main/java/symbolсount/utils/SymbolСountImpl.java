@@ -17,7 +17,7 @@ public class SymbolСountImpl implements SymbolСountService {
     public Map<Character, Integer> countSymbols() {
         TreeMap<Character, Integer> countData = new TreeMap<>();
         String textFromStorage = textStorage.getText();
-        if(textFromStorage == null){
+        if(textFromStorage == null || textFromStorage.contains(" ")){
             return countData;
         }
         char[] textCharArray = textFromStorage.toCharArray();

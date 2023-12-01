@@ -17,10 +17,11 @@ public class TextController {
 
     @GetMapping(value = "/text", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<Character, Integer>> countSymbols(){
-        if(symbolCountService.getTextFromStorage().isEmpty()){
+        Map<Character, Integer> result = symbolCountService.countSymbols();
+        if(result.isEmpty()){
             return ResponseEntity.status(400).body(null);
         }
-        return ResponseEntity.ok(symbolCountService.countSymbols());
+        return ResponseEntity.ok(result);
     }
 
     @PostMapping("/text")
