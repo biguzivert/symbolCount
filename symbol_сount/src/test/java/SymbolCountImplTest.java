@@ -1,5 +1,3 @@
-import jakarta.persistence.criteria.CriteriaBuilder;
-import org.aspectj.lang.annotation.Before;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -8,20 +6,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.test.context.event.annotation.BeforeTestMethod;
 import symbolсount.utils.SymbolСountImpl;
 import symbolсount.utils.TextStorage;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
-
-import static javax.swing.UIManager.get;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-
-//@ExtendWith(MockitoExtension.class)
-
 @AutoConfigureMockMvc(addFilters = false)
 @ExtendWith(MockitoExtension.class)
 class SymbolCountImplTest{

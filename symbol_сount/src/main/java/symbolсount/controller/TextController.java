@@ -1,6 +1,5 @@
 package symbolсount.controller;
 
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +14,6 @@ public class TextController {
 
     @Autowired
     SymbolСountService symbolCountService;
-    @Autowired
-    TextStorage textStorage;
 
     @GetMapping(value = "/text", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<Character, Integer>> countSymbols(){
